@@ -22,7 +22,8 @@ public class StoryLanes {
     }
 
     public List<Story> getStories() {
-        List<Story> stories = new ArrayList<Story>(laneStories("")); // returns all stories
+    	String returnAllStories = "";
+        List<Story> stories = new ArrayList<Story>(laneStories(returnAllStories));
         Collections.sort(stories, new Comparator<Story>() {
             public int compare(Story o1, Story o2) {
                 return o1.getName().compareTo(o2.getName());
@@ -32,8 +33,9 @@ public class StoryLanes {
     }
 
     public List<String> getLanes() {
+    	String dontWantToDisplayAllStoriesAgain = "";
         List<String> lanes = storyMaps.getMetaFilters();
-        lanes.remove(""); // don't want to display all stories again
+        lanes.remove(dontWantToDisplayAllStoriesAgain);
         Collections.sort(lanes);
         return lanes;
     }
@@ -65,7 +67,6 @@ public class StoryLanes {
         for (Story story : stories) {
             story.namedAs(nameResolver.resolveName(story.getPath()));
         }
-        
     }
 
 }
