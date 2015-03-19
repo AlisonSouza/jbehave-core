@@ -13,6 +13,7 @@ import org.jbehave.core.io.StoryNameResolver;
  */
 public class StoryLanes {
 
+	public static final String BLANK = "";
     private final StoryMaps storyMaps;
     private final StoryNameResolver nameResolver;
 
@@ -22,7 +23,7 @@ public class StoryLanes {
     }
 
     public List<Story> getStories() {
-    	String returnAllStories = "";
+    	String returnAllStories = BLANK;
         List<Story> stories = new ArrayList<Story>(laneStories(returnAllStories));
         Collections.sort(stories, new Comparator<Story>() {
             public int compare(Story o1, Story o2) {
@@ -33,7 +34,7 @@ public class StoryLanes {
     }
 
     public List<String> getLanes() {
-    	String dontWantToDisplayAllStoriesAgain = "";
+    	String dontWantToDisplayAllStoriesAgain = BLANK;
         List<String> lanes = storyMaps.getMetaFilters();
         lanes.remove(dontWantToDisplayAllStoriesAgain);
         Collections.sort(lanes);
